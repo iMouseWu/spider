@@ -1,4 +1,4 @@
-package com.spider.handle;
+package com.spider.queue;
 
 import java.util.HashSet;
 import java.util.Iterator;
@@ -9,7 +9,7 @@ import java.util.Set;
  * 
  * @author wuhao
  */
-public class WebUrlHandle {
+public class WebUrlQueue {
 
 	public static Set<String> urls = new HashSet<String>();
 

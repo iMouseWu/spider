@@ -1,7 +1,7 @@
 package com.spider;
 
 import com.spider.domain.Item;
-import com.spider.utils.WebPageQueue;
+import com.spider.queue.WebPageQueue;
 
 public class Client {
 

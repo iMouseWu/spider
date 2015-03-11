@@ -2,11 +2,11 @@ package com.spider.info;
 
 import java.io.IOException;
 
-import com.spider.handle.WebUrlHandle;
-import com.spider.utils.WebPageQueue;
+import com.spider.queue.WebPageQueue;
+import com.spider.queue.WebUrlQueue;
 import com.spider.utils.WebUtils;
 
-public class PageInfo {
+public class ItemPageInfo {
 
 	private String catchPageInfo(String url) {
 		String pageInfo = "";
@@ -20,7 +20,7 @@ public class PageInfo {
 	}
 
 	public void catchInfoPutInQueue() {
-		WebUrlHandle webUrlHandle = new WebUrlHandle();
+		WebUrlQueue webUrlHandle = new WebUrlQueue();
 		String pageInfo = catchPageInfo(webUrlHandle.getUrl());
 
 		WebPageQueue webPageQueue = new WebPageQueue();
