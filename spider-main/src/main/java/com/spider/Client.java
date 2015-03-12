@@ -1,7 +1,7 @@
 package com.spider;
 
 import com.spider.domain.Item;
-import com.spider.queue.WebPageQueue;
+import com.spider.queue.ItemPageQueue;
 
 public class Client {
 
@@ -10,7 +10,7 @@ public class Client {
 	public static void main(String[] args) {
 		Client client = new Client();
 
-		WebPageQueue webPageQueue = new WebPageQueue();
+		ItemPageQueue webPageQueue = new ItemPageQueue();
 		String html = webPageQueue.poll();
 
 		Item item = client.htmlAnalyzeHandle.analyze(html);

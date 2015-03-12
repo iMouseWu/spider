@@ -2,8 +2,8 @@ package com.spider.info;
 
 import java.io.IOException;
 
-import com.spider.queue.WebPageQueue;
-import com.spider.queue.WebUrlQueue;
+import com.spider.queue.ItemPageQueue;
+import com.spider.queue.ItemUrlQueue;
 import com.spider.utils.WebUtils;
 
 public class ItemPageInfo {
@@ -20,10 +20,10 @@ public class ItemPageInfo {
 	}
 
 	public void catchInfoPutInQueue() {
-		WebUrlQueue webUrlHandle = new WebUrlQueue();
+		ItemUrlQueue webUrlHandle = new ItemUrlQueue();
 		String pageInfo = catchPageInfo(webUrlHandle.getUrl());
 
-		WebPageQueue webPageQueue = new WebPageQueue();
+		ItemPageQueue webPageQueue = new ItemPageQueue();
 		webPageQueue.offer(pageInfo);
 	}
 }

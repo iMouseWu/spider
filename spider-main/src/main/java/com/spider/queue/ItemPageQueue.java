@@ -2,9 +2,12 @@ package com.spider.queue;
 
 import java.util.LinkedList;
 
-
-public class SpiderQueue {
-
+/**
+ * 单个商品详情页面
+ * 
+ * @author wuhao
+ */
+public class ItemPageQueue {
 
 	private static LinkedList<String> pageInfos = new LinkedList<String>();
 
@@ -15,6 +18,5 @@ public class SpiderQueue {
 	public synchronized boolean offer(String pageInfo) {
 		return pageInfos.offer(pageInfo);
 	}
-
 
 }

@@ -9,7 +9,7 @@ import java.util.Set;
  * 
  * @author wuhao
  */
-public class WebUrlQueue {
+public class ItemUrlQueue {
 
 	public static Set<String> urls = new HashSet<String>();
 
