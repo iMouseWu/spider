@@ -1,7 +1,7 @@
 package com.spider.filter.url;
 
-import java.util.Set;
-
+import com.spider.filter.Context;
+import com.spider.filter.FilterContext;
 import com.spider.filter.SpiderFilter;
 import com.spider.queue.PageHasSeenUrl;
 
@@ -14,15 +14,19 @@ public class UrlContainFilter implements SpiderFilter {
 	}
 
 	@Override
-	public void filter(FilterContext filterContext) {
-		PageHasSeenUrl pageHasSeenUrl = new PageHasSeenUrl();
+	public void filter(Context context) {
+		if (!(context instanceof FilterContext)) {
+			throw new IllegalArgumentException("context type error.what wo want is FilterContext");
+		}
+		FilterContext filterContext = (FilterContext) context;
+
+		PageHasSeenUrl pageHasSeenUrl = PageHasSeenUrl.getInstance();
 		if (pageHasSeenUrl.isUrlContain(filterContext.getShopId(), filterContext.getUrl())) {
 			return;
 		} else {
 			pageHasSeenUrl.putUrl(filterContext.getShopId(), filterContext.getUrl());
-			next.filter(filterContext);
+			next.filter(context);
 		}
 
 	}
-
 }

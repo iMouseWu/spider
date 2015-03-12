@@ -1,6 +1,6 @@
-package com.spider.filter.url;
+package com.spider.domain;
 
-public class FilterContext {
+public class PageUrlDO {
 
 	private String url;
 

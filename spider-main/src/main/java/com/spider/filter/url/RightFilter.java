@@ -1,5 +1,6 @@
 package com.spider.filter.url;
 
+import com.spider.filter.Context;
 import com.spider.filter.SpiderFilter;
 
 public class RightFilter implements SpiderFilter {
@@ -11,7 +12,7 @@ public class RightFilter implements SpiderFilter {
 	}
 
 	@Override
-	public void filter(FilterContext filterContext) {
+	public void filter(Context filterContext) {
 		// TODO Auto-generated method stub
 
 		next.filter(filterContext);

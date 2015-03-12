@@ -14,12 +14,22 @@ import org.apache.commons.collections.CollectionUtils;
  */
 public class PageHasSeenUrl {
 
+	private static PageHasSeenUrl pageHasSeenUrl = new PageHasSeenUrl();
+
+	private PageHasSeenUrl(){
+
+	}
+
+	public static PageHasSeenUrl getInstance() {
+		return pageHasSeenUrl;
+	}
+
 	/**
 	 * Map<ShopId,urlSet>
 	 */
-	private static Map<String, Set<String>> pageInfos = new HashMap<String, Set<String>>();
+	private Map<String, Set<String>> pageInfos = new HashMap<String, Set<String>>();
 
-	public boolean isUrlContain(String shopId, String url) {
+	public synchronized boolean isUrlContain(String shopId, String url) {
 		Set<String> set = pageInfos.get(shopId);
 		if (CollectionUtils.isEmpty(set)) {
 			return true;
@@ -27,13 +37,20 @@ public class PageHasSeenUrl {
 		return set.contains(url);
 	}
 
-	public void putUrl(String shopId, String url) {
+	public synchronized void putUrl(String shopId, String url) {
 		Set<String> set = pageInfos.get(shopId);
 		if (CollectionUtils.isEmpty(set)) {
 			set = new HashSet<String>();
 		}
 		set.add(url);
 		pageInfos.put(shopId, set);
+	}
+
+	/**
+	 * FIXME 这个方法是否需要同步
+	 */
+	public void remove(String shopId) {
+		pageInfos.remove(shopId);
 	}
 
 }
